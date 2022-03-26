@@ -2,7 +2,7 @@
 #include "GL/glew.h";
 #include "GL/glut.h";
 #include "glm/glm.hpp";
-//include "GL/freeglut.h";
+#include "GL/freeglut.h";
 
 void RenderSceneOB() {
 	glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
@@ -24,7 +24,12 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Error: '%s' \n", glewGetErrorString(res));
 		return 1;
 	}
+	glm::vec3 Verticles[1];
+	Verticles[0] = glm::vec3(0.0f, 0.0f, 0.0f);
+	GLuint VBO;
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Verticles), Verticles, GL_STATIC_DRAW);
 
-	
 
 }
